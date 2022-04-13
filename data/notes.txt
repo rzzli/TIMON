@@ -1,0 +1,4 @@
+lib location
+https://hocomoco11.autosome.ru/downloads_v11
+
+use homer motifs and thres file

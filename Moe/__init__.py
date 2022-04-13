@@ -1,0 +1,1 @@
+from .motifFreq import readFasta, uniqueTF, motifFreq, motifFreq_overlap, calcGC, sigEdges

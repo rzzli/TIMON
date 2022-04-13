@@ -59,7 +59,6 @@ class uniqueTF:
         self.track_array =  np.empty((self.peak_size,4))
         self.track_array[:] = np.nan
         self.tf_onehot = None
-        self.gap_tu=None
     def structure(self,A):
         """
         check for np.nan in array, return starting and length of continuous np.nan 
@@ -124,17 +123,17 @@ class uniqueTF:
                         motif_in=np.hstack((np.repeat([[motif_score,tfi,tf_selected_size]],tf_selected_size,axis=0),np.arange(tf_selected_size)[:, np.newaxis]))
                         self.track_array[current_300_pos-tf_selected_size +1: current_300_pos+1,:]=motif_in
     def repeatFillGaps(self):
-        self.gap_tu=self.structure(np.isnan(self.track_array[:,0])) # init with list [(300,0)]
+        gap_tu=self.structure(np.isnan(self.track_array[:,0])) # init with list [(300,0)]
         gap_tu_pre=list() # init with empty list 
-        gap_tu_diff=[tu for tu in self.gap_tu if tu not in gap_tu_pre]
+        gap_tu_diff=[tu for tu in gap_tu if tu not in gap_tu_pre]
         while (len(gap_tu_diff)>0) and (max([i[1] for i in gap_tu_diff])>=self.tfsizes.min()):
             gap_tu_diff_sub= [tu for tu in gap_tu_diff if tu[1]>self.tfsizes.min()]
             for tu in gap_tu_diff_sub:
                 tf_sub=np.where(self.tfsizes<=tu[1])[0]
                 self.fillGaps(tf_sub,tu)
-            gap_tu_pre=self.gap_tu.copy()
-            self.gap_tu=self.structure(np.isnan(self.track_array[:,0]))
-            gap_tu_diff=[tu for tu in self.gap_tu if tu not in gap_tu_pre]
+            gap_tu_pre=gap_tu.copy()
+            gap_tu=self.structure(np.isnan(self.track_array[:,0]))
+            gap_tu_diff=[tu for tu in gap_tu if tu not in gap_tu_pre]
         #unq=list(set(np.unique(self.track_array[~np.isnan(self.track_array[:,0]),:],axis=0)[:,1].astype(int)))
         #self.tf_onehot=np.zeros(len(self.tfsizes))
         #self.tf_onehot[unq]=1
