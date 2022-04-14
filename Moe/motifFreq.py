@@ -10,6 +10,8 @@ from scipy import stats
 import Bio
 import random
 from Bio.SeqUtils import GC
+import os.path
+my_path = os.path.abspath(os.path.dirname(__file__))
 
 
 """
@@ -124,7 +126,7 @@ class uniqueTF:
                         motif_in=np.hstack((np.repeat([[motif_score,tfi,tf_selected_size]],tf_selected_size,axis=0),np.arange(tf_selected_size)[:, np.newaxis]))
                         self.track_array[current_300_pos-tf_selected_size +1: current_300_pos+1,:]=motif_in
     def repeatFillGaps(self):
-        self.gap_tu=self.structure(np.isnan(self.track_array[:,0])) # init with list [(300,0)]
+        self.gap_tu=self.structure(np.isnan(self.track_array[:,0])) # init with list [(0,300)]
         gap_tu_pre=list() # init with empty list 
         gap_tu_diff=[tu for tu in self.gap_tu if tu not in gap_tu_pre]
         while (len(gap_tu_diff)>0) and (max([i[1] for i in gap_tu_diff])>=self.tfsizes.min()):
@@ -152,8 +154,8 @@ class motifFreq:
                  thres_path="../data/HOCOMOCOv11_core_standard_thresholds_HUMAN_mono.txt",
                  homer_path="../data/HOCOMOCOv11_core_HUMAN_mono_homer_format_0.0001.motif"):
         self.fa_path_A=fa_path_A
-        self.thres_path=thres_path
-        self.homer_path=homer_path
+        self.thres_path=os.path.join(my_path,thres_path)
+        self.homer_path=os.path.join(my_path,homer_path)
         self.subset_factor=int(subset_factor)
         self.tfexp=tfexp 
         self.tfnames=None
