@@ -62,6 +62,8 @@ class uniqueTF:
         self.track_array[:] = np.nan
         self.tf_onehot = None
         self.gap_tu=None
+        self.unq_pass_cutoff=None
+        self.ta_sub=None
     def structure(self,A):
         """
         check for np.nan in array, return starting and length of continuous np.nan 
@@ -140,13 +142,15 @@ class uniqueTF:
         #unq=list(set(np.unique(self.track_array[~np.isnan(self.track_array[:,0]),:],axis=0)[:,1].astype(int)))
         #self.tf_onehot=np.zeros(len(self.tfsizes))
         #self.tf_onehot[unq]=1
-        ta_sub=self.track_array[:,:3]
-        unq=np.unique(ta_sub[~np.isnan(ta_sub[:,0]),:],axis=0)   #only keep unique rows
+        self.ta_sub=self.track_array[:,:3]
+        unq=np.unique(self.ta_sub[~np.isnan(self.ta_sub[:,0]),:],axis=0)   #only keep unique rows
         tf_unq=np.array(self.tfnames)[unq[:,1].astype(int)]
         cutoff_unq=[self.motif_cutoff[tf] for tf in tf_unq]
-        unq_pass_cutoff=unq[np.where(unq[:,0]-cutoff_unq >0),:][0,...]
+
+        self.unq_pass_cutoff=unq[np.where(unq[:,0]-cutoff_unq >0),:][0,...]
+
         self.tf_onehot=np.zeros(len(self.tfnames))
-        self.tf_onehot[unq_pass_cutoff[:,1].astype(int)]=1
+        self.tf_onehot[self.unq_pass_cutoff[:,1].astype(int)]=1
         return np.array(self.tf_onehot) 
 
 class motifFreq:
@@ -176,6 +180,13 @@ class motifFreq:
         
         self.subset_tf_index=None
         
+        """
+        access tf list from allMotifScores function
+        """
+        self.peak_onehot_obj=None
+        self.peak_onehot_short=None
+        self.full_tf_onehot=None
+        self.whereto_one=None         
         
     def loadMotifLib(self):
         thres_df=pd.read_csv(self.thres_path,sep='\t')   # df containing different cutoff
@@ -250,6 +261,7 @@ class motifFreq:
         max_scores= np.amax([fwd_scores300,rev_scores300],axis=0)
 
         return max_scores
+    """
     def allMotifScores(self,peakID):
         '''
         for each peak, compute all 401 motifs status
@@ -264,7 +276,22 @@ class motifFreq:
         whereto_one=np.array(self.subset_tf_index)[np.where(peak_onehot_short==1)[0]]  # index out of 401 where there is a co-occurence event
         full_tf_onehot[whereto_one]=1                                
         return np.array(full_tf_onehot) 
- 
+    """
+    def allMotifScores(self,peakID):
+        '''
+        for each peak, compute all 401 motifs status
+        return a (401,) array
+        '''
+        #all_motif_one_seq_scores=[self.scoreMotifBoth(peakID,motif_name) for motif_name in self.tfnames]
+        self.mtx=np.array([self.scoreMotifBoth(peakID,motif_name) for motif_name in self.tfnames])
+        self.peak_onehot_obj=uniqueTF(self.mtx,self.tfsizes,self.motif_cutoff,self.tfnames)
+        self.peak_onehot_short=self.peak_onehot_obj.repeatFillGaps()
+        # convert short one hot (# selected tf,1) to full one hot (401,1)
+        self.full_tf_onehot=np.zeros((len(self.tfnames_full,)))
+        self.whereto_one=np.array(self.subset_tf_index)[np.where(self.peak_onehot_short==1)[0]]  # index out of 401 where there is a co-occurence event
+        self.full_tf_onehot[self.whereto_one]=1                                
+        return np.array(self.full_tf_onehot) 
+    
     
     def allPeaksMotifsScore(self):
         '''
