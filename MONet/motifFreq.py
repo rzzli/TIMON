@@ -416,7 +416,7 @@ class motifFreq_overlap:
             #self.mtxA=np.array(list(pool.map(self.allMotifScore_overlap,self.peak_id_A)))
         #return self.mtxA
         with concurrent.futures.ProcessPoolExecutor(max_workers=self.ncore ) as executor:
-            self.mtxA=np.array(list(executor.map(self.allMotifScore_overlap,self.peak_id_A,,chunksize=1000)))
+            self.mtxA=np.array(list(executor.map(self.allMotifScore_overlap,self.peak_id_A,chunksize=1000)))
         return self.mtxA
 
 
