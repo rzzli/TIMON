@@ -10,7 +10,6 @@ setup(
     packages=find_packages(include=['MONet', 'MONet.*']),
     description = ("MONet is a tool to build transcription factor co-occurrence networks from epigenetic data."),
     install_requires=[
-        'multiprocessing',
         'biopython ==1.77',
         'numpy ==1.21.5',
         'scipy ==1.6.1',
