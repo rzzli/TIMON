@@ -14,7 +14,8 @@ setup(
         'numpy ==1.21.5',
         'scipy ==1.6.1',
         'pandas ==1.3.5',
-        'networkx ==2.6.3'
+        'networkx ==2.6.3',
+        'jupyter'
     ],
     setup_requires=[  'flake8'],
     
