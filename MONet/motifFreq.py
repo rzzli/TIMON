@@ -412,8 +412,11 @@ class motifFreq_overlap:
         '''
         self.loadMotifLib_overlap()
         self.loadSeq_overlap()
-        with multiprocessing.Pool(self.ncore) as pool:
-            self.mtxA=np.array(list(pool.map(self.allMotifScore_overlap,self.peak_id_A)))
+        #with multiprocessing.Pool(self.ncore) as pool:
+            #self.mtxA=np.array(list(pool.map(self.allMotifScore_overlap,self.peak_id_A)))
+        #return self.mtxA
+        with concurrent.futures.ProcessPoolExecutor(max_workers=self.ncore ) as executor:
+            self.mtxA=np.array(list(executor.map(self.allMotifScore_overlap,self.peak_id_A,,chunksize=1000)))
         return self.mtxA
 
 
@@ -561,8 +564,11 @@ class sigEdges:
 
         # if n_core is less than 1, do not use multi process 
         if self.n_core >=1:
-            with multiprocessing.Pool(self.n_core) as P:
-                p_list_fetal=list(P.map(self.pValEdges,self.tfpairs))
+            #with multiprocessing.Pool(self.n_core) as P:
+                #p_list_fetal=list(P.map(self.pValEdges,self.tfpairs)
+            with concurrent.futures.ProcessPoolExecutor(max_workers=self.ncore ) as executor:
+                p_list_fetal=list(executor.map(self.pValEdges,self.tfpairs,chunksize=1000))
+
         else:
             p_list_fetal=list(map(self.pValEdges,self.tfpairs))
         p_list_fetal=np.array(p_list_fetal)
