@@ -5,7 +5,7 @@ import re
 import os
 from Bio import motifs, SeqIO, Seq
 from itertools import combinations
-import multiprocessing
+import concurrent
 from scipy import stats
 import Bio
 import random
@@ -300,8 +300,11 @@ class motifFreq:
         '''
         self.loadMotifLib()
         self.loadSeq()
-        with multiprocessing.Pool(self.ncore) as pool:
-            self.mtxA=np.array(list(pool.map(self.allMotifScores,self.peak_id_A)))
+        #with multiprocessing.Pool(self.ncore) as pool:
+            #self.mtxA=np.array(list(pool.map(self.allMotifScores,self.peak_id_A)))
+        #return self.mtxA
+        with concurrent.futures.ProcessPoolExecutor(max_workers=self.ncore ) as executor:
+            self.mtxA=np.array(list(executor.map(self.allMotifScores,self.peak_id_A,chunksize=1000)))
         return self.mtxA
 
 
