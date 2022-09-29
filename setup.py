@@ -15,6 +15,7 @@ setup(
         'scipy ==1.6.1',
         'pandas ==1.3.5',
         'networkx ==2.6.3',
+        'matplotlib ==3.3.2',
         'jupyter'
     ],
     setup_requires=[  'flake8'],
