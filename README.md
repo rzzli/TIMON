@@ -49,7 +49,7 @@ from MONet.motifFreq import *
 
 This section is actively under development.
 
-- [Fetal and Postnatal microglia motif co-occurrence analysis.](example/microglia_cooccurrence.ipynb)
+- [Fetal and Postnatal microglia motif co-occurrence analysis.](tutorials/microglia_cooccurrence.ipynb)
 
 ### License
 [This project is licensed under MIT](https://github.com/rzzli/MONet/blob/main/LICENSE)
