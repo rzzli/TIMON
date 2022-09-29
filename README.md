@@ -40,6 +40,11 @@ remove the conda environment on jupyter notebook
 jupyter kernelspec uninstall monet_conda
 ```
 
+### import MONet 
+```python
+from MONet.motifFreq import *
+```
+
 ### Tutorials
 
 This section is actively under development.
@@ -49,5 +54,5 @@ This section is actively under development.
 ### License
 [This project is licensed under MIT](https://github.com/rzzli/MONet/blob/main/LICENSE)
 
-## Contribution
-MAGGIE was developed primarily by Rick Z Li, with contributions and suggestions by Claudia Han and supervision from Christopher Glass.
+### Contribution
+MONet was developed primarily by Rick Z Li, with contributions and suggestions from Claudia Han and supervision from Christopher Glass.
