@@ -5,7 +5,7 @@ import re
 import os
 from Bio import motifs, SeqIO, Seq
 from itertools import combinations
-import concurrent
+import concurrent.futures
 from scipy import stats
 import Bio
 import random
