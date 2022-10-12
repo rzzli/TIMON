@@ -16,7 +16,7 @@ setup(
         'pandas ==1.3.5',
         'networkx ==2.6.3',
         'matplotlib ==3.3.2',
-        'pygraphviz ==1.3',
+        #'pygraphviz ==1.3',
         'jupyter'
     ],
     setup_requires=[  'flake8'],
