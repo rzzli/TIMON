@@ -5,7 +5,7 @@ Motif Co-Occurrence Network analysis (MONet). is a tool to analyze motif co-occu
 
 For questions on installation or usage, please open an issue, submit a pull request, or contact Rick Z. Li (zhl022@eng.ucsd.edu
 <p align="center">
-<img src="https://github.com/rzzli/MONet/blob/main/image/monet.jpg" width="900" height="450">
+<img src="https://github.com/rzzli/MONet/blob/main/image/monet.jpg" width="900" height="512">
 </p>
 
 ### Installation
