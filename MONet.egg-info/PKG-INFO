@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: MONet
+Version: 0.1.0
+Summary: MONet is a tool to build transcription factor co-occurrence networks from epigenetic data.
+Home-page: https://github.com/rzzli/MONet
+Author: Rick Z Li
+Author-email: zhl022@eng.ucsd.edu
+License: MIT
+Keywords: motif co-occurrence,transcription factors,microglia
+Platform: UNKNOWN
+License-File: LICENSE
+
+UNKNOWN
+
