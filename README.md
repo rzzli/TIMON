@@ -1,9 +1,17 @@
 [![python-version](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org/downloads/release/python-360/)
 
+<<<<<<< HEAD
 # TIMON 
 Motif Co-Occurrence Network analysis (TIMON). is a tool to analyze motif co-occurrences in a set of peaks (ATAC, enhancer etc.). In addition, when compare the input data with background distal elements (summing 15 ENCODE cell types), Moe can identify significantly co-occuring motif pairs from the input peak set.
+=======
+# MONet 
+Motif Co-Occurrence Network analysis (MONet) is a tool to analyze transcription factor (TF) motif co-occurrences from epigenetic datasets (open chromatin, transcription factor binding sites, enhancers, etc.). The first step of MONet is to identify non-overlapping motifs to identify the best matching TFs in the sequences of interest.  Next, MONet builds co-occurrences matrices between TFs. Through comparing the TF co-occurrences in the cell type of interest with background cell types (50+ cell types from ENCODE), MONet identifies significantly enriched TF pair in the cell type of interest and thus construct the TF co-occurrence networks. 
+>>>>>>> 6b53991b938390aabb201621b4564f97931a654e
 
-For questions on installation or usage, please open an issue, submit a pull request, or contact Rick Z. Li (zhl022@eng.ucsd.edu).
+For questions on installation or usage, please open an issue, submit a pull request, or contact Rick Z. Li (zhl022@eng.ucsd.edu)
+<p align="center">
+<img src="https://github.com/rzzli/MONet/blob/main/image/monet.jpg" width="900" height="512">
+</p>
 
 ### Installation
 ```bash
