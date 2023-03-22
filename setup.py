@@ -2,13 +2,13 @@ from setuptools import setup, find_packages
 
 
 setup(
-    name = "MONet",
+    name = "TIMON",
     version = "0.1.0",
     author = "Rick Z Li",
     author_email = "zhl022@eng.ucsd.edu",
     include_package_data=True,
-    packages=find_packages(include=['MONet', 'MONet.*']),
-    description = ("MONet is a tool to build transcription factor co-occurrence networks from epigenetic data."),
+    packages=find_packages(include=['TIMON', 'TIMON.*']),
+    description = ("TIMON is a tool to build transcription factor co-occurrence networks from epigenetic data."),
     install_requires=[
         'biopython ==1.77',
         'numpy ==1.21.5',
@@ -23,5 +23,5 @@ setup(
     
     license = "MIT",
     keywords = "motif co-occurrence, transcription factors, microglia",
-    url = "https://github.com/rzzli/MONet",
+    url = "https://github.com/rzzli/TIMON",
 )
