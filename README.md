@@ -16,13 +16,13 @@ pip install -e .
 ```
 #### optional: install in a new conda environment
 ```bash
-conda create -n monet_conda python=3.7.7
-conda activate monet_conda
+conda create -n timon_conda python=3.7.7
+conda activate timon_conda
 git clone https://github.com/rzzli/TIMON.git
 cd TIMON
 pip install -e .
 ```
-add the new conda environment to jupyter notebook
+add the new conda environment to jupyter 
 ```bash
 conda activate monet_conda
 python -m ipykernel install --user --name monet_conda
@@ -35,7 +35,7 @@ pip uninstall TIMON
 ```
 remove the conda environment
 ```bash
-conda env remove -n monet_conda
+conda env remove -n timon_conda
 ```
 
 remove the conda environment on jupyter notebook
