@@ -27,6 +27,10 @@ add the new conda environment to jupyter
 conda activate monet_conda
 python -m ipykernel install --user --name monet_conda
 ```
+The tutorial requires PyGraphviz package, to install:
+```bash
+conda install --channel conda-forge pygraphviz
+```
 
 ### Uninstall TIMON/conda environment
 uninstall TIMON package
