@@ -1,4 +1,4 @@
 # TIMON
 
 To download demo dataset, please use the following link:
-[Link]([http://homer.ucsd.edu/zhl022/timon_data.tar.gz](https://www.dropbox.com/scl/fi/z5pa3384kx8kwqr3zkfli/timon_data.tar.gz?rlkey=b6aclk9mx7jp8r8hvo3m9p235&dl=0)https://www.dropbox.com/scl/fi/z5pa3384kx8kwqr3zkfli/timon_data.tar.gz?rlkey=b6aclk9mx7jp8r8hvo3m9p235&dl=0)
+[Link](https://www.dropbox.com/scl/fi/z5pa3384kx8kwqr3zkfli/timon_data.tar.gz?rlkey=b6aclk9mx7jp8r8hvo3m9p235&dl=1)
