@@ -1,4 +1,6 @@
 [![python-version](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org/downloads/release/python-360/)
+[![DOI](https://zenodo.org/badge/DOI/10.1016/j.immuni.2023.07.016)]([https://doi.org/10.1016/j.immuni.2023.07.016]))
+
 
 # TIMON
 Transcription Factor Interaction Inference from Motif Co-occurrence Networks (TIMON) is a tool to analyze transcription factor (TF) motif co-occurrences from epigenetic datasets (open chromatin, transcription factor binding sites, enhancers, etc.). The first step of TIMON is to identify non-overlapping motifs to identify the best matching TFs in the sequences of interest.  Next, TIMON builds co-occurrences matrices between TFs. Through comparing the TF co-occurrences in the cell type of interest with background cell types (50+ cell types from ENCODE), TIMON identifies significantly enriched TF pair in the cell type of interest and thus construct the TF co-occurrence networks. 
