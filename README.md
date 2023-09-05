@@ -1,5 +1,5 @@
 [![python-version](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org/downloads/release/python-360/)
-[![DOI](https://zenodo.org/badge/DOI/10.1016/j.immuni.2023.07.016)]([https://doi.org/10.1016/j.immuni.2023.07.016]))
+[![DOI](https://zenodo.org/badge/DOI/10.1016/j.immuni.2023.07.016)](https://doi.org/10.1016/j.immuni.2023.07.016))
 
 
 # TIMON
