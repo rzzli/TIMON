@@ -24,8 +24,8 @@ pip install -e .
 ```
 add the new conda environment to jupyter 
 ```bash
-conda activate monet_conda
-python -m ipykernel install --user --name monet_conda
+conda activate timon_conda
+python -m ipykernel install --user --name timon_conda
 ```
 The tutorial requires PyGraphviz package, to install:
 ```bash
@@ -44,7 +44,7 @@ conda env remove -n timon_conda
 
 remove the conda environment on jupyter notebook
 ```bash
-jupyter kernelspec uninstall monet_conda
+jupyter kernelspec uninstall timon_conda
 ```
 
 ### import TIMON 
